@@ -20,20 +20,22 @@ export const getInputs = (elements) => {
     }
 }
 
-// const renderIncome = (id, description, value) => {
-//     const incomeListItem = 
-//     `<div class="item clearfix" id="income-${id}">
-//     <div class="item__description">${description}</div>
-//     <div class="right clearfix">
-//         <div class="item__value">${value}</div>
-//         <div class="item__delete">
-//             <button class="item__delete--btn">
-//                 <i class="ion-ios-close-outline"></i>
-//             </button>
-//         </div>
-//     </div>
-// </div>`
-// }
+ const renderIncome = (id, description, value) => {
+     const incomeListItem = 
+     `<div class="item clearfix" id="income-${id}">
+     <div class="item__description">${description}</div>
+     <div class="right clearfix">
+         <div class="item__value">${value}</div>
+         <div class="item__delete">
+             <button class="item__delete--btn">
+                 <i class="ion-ios-close-outline"></i>
+             </button>
+         </div>
+     </div>
+ </div>`
+
+    return incomeListItem;
+ }
 
 // const renderExpense = (id, description, value, percentage) => {
 //     const expenseListItem = 
@@ -50,7 +52,10 @@ export const getInputs = (elements) => {
 // }
 
 export const renderData = (data) => {
-
+    data.items.income.forEach((item) => {
+        const { id, description, value } = item;
+        DOMElementsSelection.incomeList.innerHTML = renderIncome(id, description, value)
+    })
 
 }
 

@@ -1,5 +1,4 @@
 
-
 class Income {
     constructor(id, description, value){
         this.id = id;
@@ -13,10 +12,14 @@ class Expense {
         this.id = id;
         this.description = description;
         this.value = value;
-    } 
+    }
+    
+    calculatePercentages(){
+        return this.value * 100 / data.totals.expense
+    }
 }
 
-const data = {
+export const data = {
     items: {
         income: [],
         expense: []
@@ -25,7 +28,8 @@ const data = {
         income: 0,
         expense: 0
     },
-    grandTotal: 0
+    grandTotal: 0,
+    percentages: []
 }
 
 export const addNewData = (inputData) => {
@@ -49,9 +53,21 @@ export const addNewData = (inputData) => {
 }
 
 const calculateTotals = (type) => {
-    data.item[type].forEach(item => {
-        data.totals[type] += item;
+    let total = 0;
+    data.items[type].forEach(item => {
+        total += item.value;
     })
+    data.totals[type] = total;
+
+    return total;
+}
+
+export const calculateAllPercentages = () => {
+    data.percentages = data.items.expense.map((item) => {
+        return item.calculatePercentages()
+    });
+
+    return data.percentages;
 }
 
 export const calculateBudget = () => {
@@ -59,4 +75,6 @@ export const calculateBudget = () => {
     calculateTotals('expense');
     data.grandTotal = data.totals.income - data.totals.expense;  
 }
+
+
 

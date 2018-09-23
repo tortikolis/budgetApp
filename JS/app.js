@@ -1,5 +1,5 @@
-import {addNewData, calculateBudget} from './data.js';
-import {DOMElementsSelection, getInputs} from './ui.js';
+import {data, addNewData, calculateBudget, calculateAllPercentages} from './data.js';
+import {DOMElementsSelection, getInputs, renderData} from './ui.js';
 
 const mainHandler = () => {
     //get inputs
@@ -9,9 +9,9 @@ const mainHandler = () => {
     //calculate budget
     calculateBudget();
     //calculatePercentages
-
+    calculateAllPercentages()
     //renderData
-
+    renderData(data)
 }
 
 const addEventListeners = () => {
