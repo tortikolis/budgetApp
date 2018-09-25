@@ -51,7 +51,7 @@ const addEventListeners = () => {
     })
     //delete item
     itemsContainer.addEventListener('click', event => {
-      if(event.target.className === 'ion-ios-close-outline') {
+      if(event.target.className === 'far fa-times-circle') {
         removeItemHandler(event);
         }
     })

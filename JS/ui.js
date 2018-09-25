@@ -21,7 +21,7 @@ export const DOMElementsSelection = {
          <div class="item__value">+${value}</div>
          <div class="item__delete">
              <button class="item__delete--btn">
-                 <i class="ion-ios-close-outline"></i>
+                <i class="far fa-times-circle"></i>
              </button>
          </div>
      </div>
@@ -38,7 +38,9 @@ export const DOMElementsSelection = {
          <div class="item__value">-${value}</div>
          <div class="item__percentage"></div>
          <div class="item__delete">
-             <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
+             <button class="item__delete--btn">
+                <i class="far fa-times-circle"></i>
+             </button>
          </div>
      </div>
  </div>`
@@ -59,7 +61,7 @@ export const DOMElementsSelection = {
     DOMElementsSelection.incomeTotalField.textContent = data.totals.income;
     DOMElementsSelection.expensesTotalField.textContent = data.totals.expense;
     DOMElementsSelection.grandTotalField.textContent = data.grandTotal;
-    DOMElementsSelection.expensesTotalPercentage.textContent = data.TotExpensePercentage + '%';
+    DOMElementsSelection.expensesTotalPercentage.textContent = data.TotExpensePercentage > 0 ?  data.TotExpensePercentage + '%': '--%';
  }
 
 export const renderItem = (item, type) => {
